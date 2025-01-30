@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiderBot</title>
+    <link rel="stylesheet" href="styling.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Side Navigation Styles */
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color:  #ffff;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 100;
+        }
+
+        .side-nav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .side-nav a:hover {
+            color: #f1f1f1;
+        }
+
+        .side-nav .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            color: #818181;
+        }
+
+        .open-btn {
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    z-index: 2; /* Ensures button stays above the background */
+}
+
+        body {
+            background-color:#e2e6e9;
+            overflow-y: auto;
+        }
+
+        .content {
+            padding-bottom: 150px;
+        }
+
+#chat-window {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+#user-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+}
+#send-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+        #send-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .disclaimer-box {
+            background-color: #4c8fe5;
+            color: white;
+            padding: 15px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 600px;
+            margin: 20px auto 100px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .disclaimer-box h3 {
+            margin: 0;
+            font-size: 19px;
+            text-transform: uppercase;
+        }
+
+        .disclaimer-box p {
+            margin: 10px 0 0;
+            font-size: 15px;
+        }
+
+        .logo {
+            width: 60%;
+            margin-left: 15px;
+            margin-bottom: 20px;
+            padding-top: 40px;
+            align-items: cen;
+        }
+
+
+        .title_logo {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: -40px;
+            margin-left: 35px;
+            color: rgb(75, 173, 212);
+            padding-top: 20px;
+        }
+
+        .text2 {
+            font-size: 10px;
+            text-align: center;
+            color: rgb(79, 79, 81);
+            font-family: verdana;
+        }
+
+        .header {
+    position: relative;
+    height: 60px;
+    background-color: transparent;
+}
+
+        .bot-message {
+            background-color: #ffffff;
+            color: #000000;
+            align-self: flex-start;
+            border-radius: 50px;
+            padding: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+            margin: 5px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-message {
+            background-color: #4c8fe5;
+            color: #fff;
+            align-self: flex-end;
+            border-radius: 50px;
+            padding: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+            margin: 5px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        
+
+    .header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgb(75, 173, 212); /* Adjust color as needed */
+    z-index: 1;
+    padding-top: 85px;
+}
+
+.balogo2 {
+    
+    position: relative;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-top: -15px;
+    width: 55px;
+    padding-left: -10px;
+    padding-bottom: -700px;
+    
+    }
+.title_logo2{
+    font-size: 35px; 
+    padding-bottom: 20px;
+    color: rgb(75, 173, 212);
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-bg"></div>
+        <button class="open-btn" onclick="toggleNav()">☰</button>
+    </div>
+
+    <div id="sideNav" class="side-nav">
+        <a href="javascript:void(0)" class="close-btn" onclick="toggleNav()">×</a>
+        <h1 stye class="title_logo2">AiderBo<img class="balogo2" src="logo2.png" alt=""> </h1>
+        <ul>
+            <li><a href="help.html">Help Center</a></li>
+        </ul>
+    </div>
+
+    <div class="front container-fluid">
+        <div class="row justify-content-center text-center content">
+            <div class="col-12 col-md-6">
+                <img class="logo" src="New logo.png" alt=""></div>
+
+            <div class="col-12">
+                <h2 class="text2">Provides you general information and proven home <p>remedies for common medical conditions</p></h2>
+            </div>
+
+            <div class="col-12">
+                <div class="disclaimer-box">
+                    <h3>DISCLAIMER:</h3>
+                    <p>Aiderbot is designed to assist with general first aid guidance for common medical conditions. Kindly visit a healthcare provider for more serious cases.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Output -->
+        <div id="chat-output"></div>
+
+        <!-- Typing Effect Box -->
+        <div id="typing-effect" class="typing-effect">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message here">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleNav() {
+    var nav = document.getElementById("sideNav");
+    nav.style.width = (nav.style.width === "250px") ? "0" : "250px";
+}
+
+document.getElementById("send-btn").addEventListener("click", function () {
+    var userMessage = document.getElementById("user-input").value.trim();
+    if (userMessage === "") return;
+
+    displayMessage(userMessage, 'user-message');
+    document.getElementById("user-input").value = '';
+
+    var typingEffect = document.getElementById("typing-effect");
+    typingEffect.style.display = "flex"; // Show typing effect
+
+    setTimeout(function () {
+        typingEffect.style.display = "none"; // Hide typing effect
+        var botResponse = "This is the chatbot's response to your message.";
+        displayMessage(botResponse, 'bot-message');
+    }, 2000); // Simulates a delay before the bot responds
+});
+
+function displayMessage(message, senderClass) {
+    var chatOutput = document.getElementById("chat-output");
+    var messageElement = document.createElement("div");
+    messageElement.classList.add(senderClass, "chat-message");
+    messageElement.textContent = message;
+    chatOutput.appendChild(messageElement);
+    
+    // Scroll to the latest message
+    chatOutput.scrollTop = chatOutput.scrollHeight;
+}
+        </script>
+        <script src="newjs.js"></script>

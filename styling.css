@@ -1,0 +1,130 @@
+.chatbot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Default height set to 70% of viewport height */
+  background-color: #ffff;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  max-height: 600px; /* Max height to prevent excessive stretching */
+}
+  
+
+
+#chat-output {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-message {
+  padding: 8px;
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+
+.chat-option {
+  margin: 5px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-option:hover {
+  background-color: #0056b3;
+}
+
+/* Chat options container for grid layout */
+/* Chat options container for grid layout */
+.chat-options-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Creates a flexible grid layout with min-width of 150px */
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.chat-option {
+  flex: 1 1 calc(50% - 10px); /* Fit two buttons per row */
+}
+
+/* Chat option styles */
+.chat-option {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+/* Typing Effect Styles */
+.typing-effect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e2e6e9;
+  border-radius: 50px;
+  width: fit-content;
+  max-width: 80%;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.typing-effect .dot {
+  background-color: #4c8fe5;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  animation: typing 1.5s infinite;
+}
+
+.typing-effect .dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-effect .dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.typing-effect .dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.user-message {
+  background-color: #4c8fe5;
+  color: #fff;
+  align-self: flex-end;
+  border-radius: 50px;
+  padding: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+  margin: 5px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
